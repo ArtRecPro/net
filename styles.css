@@ -1,0 +1,1959 @@
+/* ========================================
+   PITCH SITE TEMPLATE - STYLES
+   ======================================== */
+
+/* ========================================
+   ПЕРЕМЕННЫЕ
+   ======================================== */
+:root {
+    --primary-color: #6a9fb5;      /* Приглушённый серо-синий */
+    --secondary-color: #12161a;    /* Тёмный фон */
+    --text-color: #e0e5e9;         /* Тёплый белый */
+    --text-secondary: #a8c0d0;     /* Светлый серо-голубой текст */
+    --bg-dark: #0c0f12;           /* Почти чёрный с синевой */
+    --bg-medium: #14181c;         /* Тёмно-серый */
+    --bg-light: #1e2328;          /* Карточки */
+    --accent-color: #8bb8c9;       /* Мягкий голубой */
+    --title-color: #e8ecf0;        /* Более серебристый для заголовков */
+}
+
+/* ========================================
+   БАЗОВЫЕ СТИЛИ
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Закругление углов для всех блоков */
+.character-card,
+.emotion-card,
+.production-card,
+.location-card,
+.camera-card,
+.screenplay-intro,
+.color-block,
+.audience-block,
+.rhythm-note,
+.rhythm-concept,
+.vision-principle,
+.accent-item,
+.poster-image,
+.dreamcast-card {
+    border-radius: 12px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========================================
+   НАВИГАЦИЯ
+   ======================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(12, 15, 18, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(106, 159, 181, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+}
+
+/* Анимация буквы Т — эффект дрожания/мерцания лампы */
+.logo-t {
+    display: inline-block;
+    color: #c9a227;
+    text-shadow: 0 0 8px rgba(201, 162, 39, 0.6),
+                 0 0 15px rgba(201, 162, 39, 0.4),
+                 0 0 25px rgba(201, 162, 39, 0.2);
+    animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(201, 162, 39, 0.6),
+                     0 0 15px rgba(201, 162, 39, 0.4),
+                     0 0 25px rgba(201, 162, 39, 0.2);
+    }
+    5% {
+        opacity: 0.8;
+        text-shadow: 0 0 4px rgba(201, 162, 39, 0.3);
+    }
+    10% {
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(201, 162, 39, 0.6),
+                     0 0 15px rgba(201, 162, 39, 0.4);
+    }
+    15% {
+        opacity: 0.9;
+        text-shadow: 0 0 6px rgba(201, 162, 39, 0.5);
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(201, 162, 39, 0.7),
+                     0 0 20px rgba(201, 162, 39, 0.5),
+                     0 0 30px rgba(201, 162, 39, 0.3);
+    }
+    52% {
+        opacity: 0.7;
+        text-shadow: 0 0 3px rgba(201, 162, 39, 0.2);
+    }
+    54% {
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(201, 162, 39, 0.6),
+                     0 0 15px rgba(201, 162, 39, 0.4);
+    }
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    text-transform: uppercase;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: var(--primary-color);
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('images/M2UXJ50L.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 15, 18, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-title {
+    font-family: 'Share Tech', sans-serif;
+    font-size: 120px;
+    font-weight: 400;
+    letter-spacing: 15px;
+    color: var(--title-color);
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(216, 220, 224, 0.3);
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.hero-title:hover {
+    color: #fff;
+    text-shadow: 0 0 40px rgba(0, 255, 255, 0.6),
+                 0 0 80px rgba(0, 200, 200, 0.4),
+                 0 0 120px rgba(0, 180, 180, 0.3);
+}
+
+.hero-tagline {
+    font-size: 24px;
+    color: var(--text-color);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.hero-format {
+    font-size: 16px;
+    color: var(--accent-color);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* ========================================
+   СЕКЦИИ
+   ======================================== */
+.section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    /* Мягкий серебристо-голубой как Nokia S60 */
+    background: linear-gradient(
+        180deg,
+        #e8f0f8 0%,
+        #c8d8e8 50%,
+        #e0ecf4 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px rgba(160, 200, 220, 0.4));
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-top: -40px;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+/* Подзаголовок после subsection-title */
+.subsection-title + .section-subtitle {
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+.subsection-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: var(--accent-color);
+    letter-spacing: 3px;
+}
+
+/* Заголовок с линиями по бокам */
+.title-decorated {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: transform 0.3s ease;
+}
+
+.title-decorated::before,
+.title-decorated::after {
+    content: '';
+    height: 1px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, var(--primary-color));
+    transition: width 0.3s ease;
+}
+
+.title-decorated::after {
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+/* Простой hover — небольшое увеличение */
+.subsection-title {
+    transition: transform 0.3s ease;
+}
+
+.subsection-title:hover {
+    transform: scale(1.05);
+}
+
+/* Hover эффект для линий */
+.title-decorated:hover::before,
+.title-decorated:hover::after {
+    width: 100px;
+}
+
+/* ========================================
+   КНОПКИ
+   ======================================== */
+.cta-button,
+.storyboard-btn {
+    padding: 15px 40px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.cta-button:hover,
+.storyboard-btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(106, 159, 181, 0.3);
+}
+
+/* ========================================
+   ИСТОРИЯ
+   ======================================== */
+.story {
+    background: linear-gradient(rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.65)),
+                url('images/N1QJG021.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.story-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.story-block {
+    margin-bottom: 40px;
+}
+
+.story-block h3 {
+    font-size: 32px;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.logline-text {
+    font-size: 22px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.synopsis p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.screenplay-blocks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.screenplay-intro {
+    text-align: center;
+    padding: 50px 30px;
+    background: var(--bg-light);
+    border: 1px solid rgba(106, 159, 181, 0.2);
+}
+
+.screenplay-intro.screenplay-bg {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/GJ43GXVN.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.screenplay-intro.synopsis-bg {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/Q43ZASIY.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.screenplay-intro:hover {
+    border-color: var(--primary-color);
+}
+
+.screenplay-intro p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+/* ========================================
+   ГЕРОИ
+   ======================================== */
+.characters {
+    background: linear-gradient(rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.65)),
+                url('images/NU5E6QL2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.character-card {
+    background: rgba(30, 35, 40, 0.5);
+    border: 1px solid rgba(106, 159, 181, 0.1);
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.character-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(106, 159, 181, 0.2);
+}
+
+.character-image {
+    height: 420px;
+    background: var(--bg-medium);
+    overflow: hidden;
+}
+
+.character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-info {
+    padding: 25px;
+}
+
+.character-info h3 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.actor-name {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.character-type {
+    font-size: 14px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.character-description {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.character-arc {
+    color: var(--text-secondary);
+    font-size: 14px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(106, 159, 181, 0.2);
+}
+
+/* Карточки персонажей без фото */
+.character-card.no-image {
+    display: flex;
+    flex-direction: column;
+}
+
+.character-card.no-image .character-info {
+    padding: 30px;
+}
+
+.character-card.no-image .character-info h3 {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.character-card.no-image .character-description {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   ВИЗУАЛЬНЫЙ ЯЗЫК
+   ======================================== */
+.visual {
+    background: linear-gradient(rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.65)),
+                url('images/Z8YSLBB8.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.visual-subsection {
+    margin-bottom: 80px;
+}
+
+/* Описание формата */
+.format-description {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+    background: rgba(30, 35, 40, 0.5);
+    border: 1px solid rgba(106, 159, 181, 0.3);
+    border-radius: 12px;
+    box-shadow: inset 0 0 25px rgba(106, 159, 181, 0.2),
+                inset 0 0 50px rgba(106, 159, 181, 0.12),
+                inset 0 0 80px rgba(106, 159, 181, 0.06);
+    transition: all 0.3s;
+}
+
+.format-description:hover {
+    border-color: rgba(106, 159, 181, 0.5);
+    box-shadow: inset 0 0 35px rgba(106, 159, 181, 0.35),
+                inset 0 0 70px rgba(106, 159, 181, 0.2),
+                inset 0 0 100px rgba(106, 159, 181, 0.1);
+}
+
+.format-description p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* Референсы */
+.posters-grid {
+    display: grid;
+    gap: 30px;
+    justify-items: center;
+}
+
+.posters-grid.posters-4 {
+    grid-template-columns: repeat(4, 240px);
+    justify-content: center;
+}
+
+.posters-grid.posters-2 {
+    grid-template-columns: repeat(2, 280px);
+    justify-content: center;
+}
+
+.poster-card {
+    text-align: center;
+}
+
+.poster-image {
+    width: 240px;
+    height: 340px;
+    background: var(--bg-light);
+    border: 1px solid rgba(106, 159, 181, 0.2);
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.poster-image:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(106, 159, 181, 0.3);
+    transform: translateY(-5px);
+}
+
+.poster-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.poster-caption {
+    margin-top: 15px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* Концепция цвета */
+.color-concept {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+/* Цветовая схема */
+.color-scheme {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.color-block {
+    padding: 50px 40px;
+    text-align: center;
+    border: 1px solid rgba(106, 159, 181, 0.1);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.color-block:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.color-block.cold {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/A079OIIS.jpg');
+    background-size: cover;
+    background-position: center;
+    border-left: 4px solid #6a9fb5;
+}
+
+.color-block.warm {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/HCH0Z5EL.jpg');
+    background-size: cover;
+    background-position: center;
+    border-left: 4px solid #8bb8c9;
+}
+
+.color-block h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.color-block p {
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.color-meaning {
+    font-style: italic;
+    color: var(--accent-color) !important;
+}
+
+/* Визуальные акценты */
+.visual-accents {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.visual-accents .accent-item:nth-child(4) {
+    grid-column: 2;
+}
+
+.accent-item {
+    padding: 25px;
+    background: rgba(30, 35, 40, 0.5);
+    border-left: 3px solid var(--primary-color);
+}
+
+.accent-item strong {
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.accent-item p {
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+/* ========================================
+   РИТМ И ЭМОЦИЯ
+   ======================================== */
+.rhythm {
+    background: linear-gradient(rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.65)),
+                url('images/R3AV8XU1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.rhythm-concept {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.rhythm-concept p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.emotion-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.rhythm-note {
+    max-width: 800px;
+    margin: 50px auto 0;
+    text-align: center;
+    padding: 30px;
+    background: rgba(30, 35, 40, 0.5);
+    border: 1px solid rgba(106, 159, 181, 0.3);
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 25px rgba(106, 159, 181, 0.2),
+                inset 0 0 50px rgba(106, 159, 181, 0.12),
+                inset 0 0 80px rgba(106, 159, 181, 0.06);
+    transition: all 0.3s;
+}
+
+.rhythm-note:hover {
+    border-color: rgba(106, 159, 181, 0.5);
+    box-shadow: inset 0 0 35px rgba(106, 159, 181, 0.35),
+                inset 0 0 70px rgba(106, 159, 181, 0.2),
+                inset 0 0 100px rgba(106, 159, 181, 0.1);
+}
+
+.rhythm-note h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.rhythm-note p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.emotion-card {
+    padding: 35px;
+    border: 1px solid rgba(106, 159, 181, 0.1);
+    transition: all 0.3s;
+}
+
+.emotion-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.emotion-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.emotion-card h4 {
+    color: var(--primary-color);
+    font-size: 22px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.emotion-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.emotion-function {
+    font-size: 14px;
+    color: var(--accent-color) !important;
+    font-style: italic;
+    padding-top: 15px;
+    border-top: 1px solid rgba(106, 159, 181, 0.2);
+}
+
+/* ========================================
+   РЕЖИССЁРСКОЕ ВИДЕНИЕ
+   ======================================== */
+.vision {
+    background: linear-gradient(rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.65)),
+                url('images/0L4DBR72.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.vision-statement {
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.vision-statement blockquote {
+    font-size: 24px;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-style: italic;
+    text-align: center;
+    padding: 50px 40px;
+    border-left: 4px solid var(--primary-color);
+    border-right: 4px solid var(--primary-color);
+    background: var(--bg-light);
+}
+
+.vision-subsection {
+    margin-top: 60px;
+}
+
+.vision-principle {
+    background: var(--bg-light);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.vision-principle p {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.vision-principle h4 {
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* Формат 9:16 */
+.format-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Карточка с фоном 9:16 */
+.format-916 {
+    background:
+        linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.6)),
+        url('images/G2YHFQWA_916.jpg');
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(106, 159, 181, 0.1);
+}
+
+.format-916:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.format-916-2 {
+    background:
+        linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.6)),
+        url('images/8WC7607J_916.jpg');
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.format-916-3 {
+    background:
+        linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.6)),
+        url('images/WUH6OAUI_916.jpg');
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Подход к актёрам */
+.acting-approach {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.acting-principle {
+    text-align: center;
+    border-left: none;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.acting-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.acting-method {
+    background: var(--bg-light);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(106, 159, 181, 0.3);
+}
+
+.acting-method h4 {
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.acting-method p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Фоны для блоков актёрского подхода */
+.acting-rehearsal {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/2b8da226a7ff16b925766865c33a942f.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.acting-improv {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/e4fc707c2280c47b3d1407c499505324.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.acting-plastique {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/49142beff342f56e09723801635308ea.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.main-actor {
+    border-left: 3px solid #c9a227;
+    background: linear-gradient(90deg, rgba(201, 162, 39, 0.1), transparent);
+}
+
+.main-actor h4 {
+    color: #c9a227;
+}
+
+/* Камера */
+.camera-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.camera-card {
+    background: var(--bg-light);
+    padding: 25px;
+    border: 1px solid rgba(106, 159, 181, 0.1);
+}
+
+.camera-card h4 {
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.camera-card p {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Фоны для карточек камеры */
+.camera-format-bg {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/JI058Z0H.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.camera-optics-bg {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/7SDGF3YD.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.camera-camera-bg {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/09JJX24H.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Убираем свечение для карточек с фоном — только рамка */
+.camera-format-bg::before,
+.camera-optics-bg::before,
+.camera-camera-bg::before {
+    display: none;
+}
+
+.camera-format-bg:hover::before,
+.camera-optics-bg:hover::before,
+.camera-camera-bg:hover::before,
+.camera-action-bg:hover::before,
+.camera-system-bg:hover::before,
+.camera-light-bg:hover::before {
+    display: none;
+}
+
+.camera-action-bg {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/XKRVKGI6.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.camera-system-bg {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/AVHZLBC6.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.camera-light-bg {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/D7L6VOGL.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Убираем свечение для новых карточек с фоном */
+.camera-action-bg::before,
+.camera-system-bg::before,
+.camera-light-bg::before {
+    display: none;
+}
+
+/* Локации */
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.location-card {
+    background: rgba(30, 35, 40, 0.5);
+    border: 1px solid rgba(106, 159, 181, 0.1);
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.location-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(106, 159, 181, 0.2);
+    transform: translateY(-5px);
+}
+
+.location-image {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.location-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.4);
+    pointer-events: none;
+    transition: background 0.3s;
+}
+
+.location-card:hover .location-image::after {
+    background: rgba(10, 10, 10, 0.2);
+}
+
+.location-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.location-card:hover .location-image img {
+    transform: scale(1.05);
+}
+
+.location-info {
+    padding: 25px;
+}
+
+.location-info h4 {
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.location-info p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.slides-count {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 12px;
+    background: rgba(106, 159, 181, 0.1);
+    color: var(--primary-color);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Дримкаст */
+.dreamcast-row {
+    display: grid;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.dreamcast-row:last-child {
+    margin-bottom: 0;
+}
+
+.dreamcast-row-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.dreamcast-row-1 {
+    grid-template-columns: 1fr;
+}
+
+.dreamcast-role {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dreamcast-character {
+    background: var(--bg-light);
+    border: 1px solid rgba(106, 159, 181, 0.3);
+    border-radius: 12px;
+    padding: 15px 40px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dreamcast-character span {
+    color: var(--primary-color);
+}
+
+.dreamcast-character::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 30px rgba(106, 159, 181, 0.25),
+                inset 0 0 60px rgba(106, 159, 181, 0.15),
+                inset 0 0 100px rgba(106, 159, 181, 0.08);
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.dreamcast-role:hover .dreamcast-character {
+    border-color: rgba(106, 159, 181, 0.6);
+}
+
+.dreamcast-role:hover .dreamcast-character::before {
+    box-shadow: inset 0 0 40px rgba(106, 159, 181, 0.4),
+                inset 0 0 80px rgba(106, 159, 181, 0.25),
+                inset 0 0 120px rgba(106, 159, 181, 0.12);
+}
+
+.dreamcast-actors {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.dreamcast-actor {
+    text-align: center;
+}
+
+.dreamcast-actor img {
+    width: 160px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(106, 159, 181, 0.2);
+    transition: all 0.3s;
+}
+
+.dreamcast-actor:hover img {
+    border-color: var(--primary-color);
+    transform: scale(1.02);
+}
+
+.dreamcast-actor p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+/* ========================================
+   ПРОИЗВОДСТВО
+   ======================================== */
+.production {
+    background: linear-gradient(rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.65)),
+                url('images/ZHADN86U.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.production-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.production-card {
+    background: rgba(30, 35, 40, 0.5);
+    padding: 35px;
+    text-align: center;
+    border: 1px solid rgba(106, 159, 181, 0.1);
+    transition: all 0.3s;
+}
+
+.production-card:hover {
+    border-color: var(--primary-color);
+}
+
+/* .highlight убран — теперь как обычная карточка */
+
+.production-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.production-card h3 {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.production-value {
+    font-size: 28px;
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.production-card p {
+    color: var(--text-secondary);
+}
+
+.production-timeline {
+    list-style: none;
+    text-align: left;
+}
+
+.production-timeline li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(106, 159, 181, 0.1);
+    color: var(--text-secondary);
+}
+
+.advantages-list {
+    list-style: none;
+    text-align: left;
+}
+
+.advantages-list li {
+    padding: 12px 0;
+    padding-left: 25px;
+    position: relative;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(106, 159, 181, 0.1);
+}
+
+.advantages-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Аудитория */
+.audience-block {
+    background: rgba(30, 35, 40, 0.5);
+    padding: 40px;
+    border: 1px solid rgba(106, 159, 181, 0.2);
+}
+
+.audience-block h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.audience-description {
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.audience-subtitle {
+    color: var(--primary-color);
+    font-size: 24px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.audience-demographics {
+    color: var(--text-color);
+    font-size: 18px;
+    text-align: center;
+}
+
+/* ========================================
+   КОНТАКТЫ
+   ======================================== */
+.contacts {
+    background: linear-gradient(rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.65)),
+                url('images/TLD0MIQ5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.contacts-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.contact-item {
+    text-align: center;
+}
+
+.contact-item h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.contact-role {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-item a {
+    display: block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-bottom: 5px;
+}
+
+.contact-item a:hover {
+    color: var(--primary-color);
+}
+
+/* ========================================
+   ФУТЕР
+   ======================================== */
+.footer {
+    background: var(--bg-dark);
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid rgba(106, 159, 181, 0.1);
+}
+
+.footer p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   МОДАЛЬНЫЕ ОКНА
+   ======================================== */
+.modal,
+.storyboard-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-close,
+.storyboard-close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: var(--primary-color);
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-close:hover,
+.storyboard-close:hover {
+    color: var(--text-color);
+}
+
+#modalCaption {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 20px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+}
+
+/* Слайдер */
+.storyboard-modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.storyboard-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+.slider-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 80vh;
+}
+
+.slider-container img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border: 1px solid rgba(106, 159, 181, 0.3);
+}
+
+.slider-arrow {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 24px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-arrow:hover {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+}
+
+.slider-counter {
+    margin-top: 20px;
+    color: var(--text-secondary);
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.slider-counter span {
+    color: var(--primary-color);
+}
+
+.location-modal-title {
+    color: var(--primary-color);
+    font-size: 24px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ========================================
+   ЭФФЕКТ КОНТРАЖУРА (изолированное свечение)
+   ======================================== */
+
+/* Базовый класс для изолированного контражура */
+.character-card,
+.production-card,
+.location-card,
+.camera-card,
+.audience-block,
+.story-block.synopsis,
+.story-block.logline,
+.vision-statement blockquote,
+.accent-item,
+.vision-principle,
+.poster-image {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Внутреннее свечение через ::before */
+.character-card::before,
+.production-card::before,
+.location-card::before,
+.camera-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 30px rgba(106, 159, 181, 0.25),
+                inset 0 0 60px rgba(106, 159, 181, 0.15),
+                inset 0 0 100px rgba(106, 159, 181, 0.08);
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.character-card:hover::before,
+.production-card:hover::before,
+.location-card:hover::before,
+.camera-card:hover::before {
+    box-shadow: inset 0 0 40px rgba(106, 159, 181, 0.4),
+                inset 0 0 80px rgba(106, 159, 181, 0.25),
+                inset 0 0 120px rgba(106, 159, 181, 0.12);
+}
+
+/* Тонкая светящаяся рамка */
+.character-card,
+.production-card,
+.location-card,
+.camera-card {
+    border: 1px solid rgba(106, 159, 181, 0.3);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.character-card:hover,
+.production-card:hover,
+.location-card:hover,
+.camera-card:hover {
+    border-color: rgba(106, 159, 181, 0.6);
+}
+
+/* Свечение для постеров */
+.poster-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 40px rgba(106, 159, 181, 0.3),
+                inset 0 0 80px rgba(106, 159, 181, 0.15);
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.poster-image:hover::before {
+    box-shadow: inset 0 0 50px rgba(106, 159, 181, 0.5),
+                inset 0 0 100px rgba(106, 159, 181, 0.25);
+}
+
+/* Свечение для цитаты режиссёра */
+.vision-statement blockquote::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 50px rgba(106, 159, 181, 0.25),
+                inset 0 0 100px rgba(106, 159, 181, 0.12);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Свечение для блока аудитории — как production-card */
+.audience-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 30px rgba(106, 159, 181, 0.25),
+                inset 0 0 60px rgba(106, 159, 181, 0.15),
+                inset 0 0 100px rgba(106, 159, 181, 0.08);
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.audience-block {
+    border: 1px solid rgba(106, 159, 181, 0.3);
+    transition: all 0.3s;
+}
+
+.audience-block:hover {
+    border-color: rgba(106, 159, 181, 0.6);
+}
+
+.audience-block:hover::before {
+    box-shadow: inset 0 0 40px rgba(106, 159, 181, 0.4),
+                inset 0 0 80px rgba(106, 159, 181, 0.25),
+                inset 0 0 120px rgba(106, 159, 181, 0.12);
+}
+
+/* Акцентные элементы — боковое свечение слева */
+.accent-item::before,
+.vision-principle::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 30px 0 50px rgba(106, 159, 181, 0.25),
+                inset 0 0 40px rgba(106, 159, 181, 0.1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* .highlight убран — использует стандартные стили production-card */
+
+/* Свечение для синопсиса */
+.story-block.synopsis {
+    padding: 40px;
+    background: rgba(30, 35, 40, 0.5);
+    border: 1px solid rgba(106, 159, 181, 0.2);
+}
+
+.story-block.synopsis::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 40px rgba(106, 159, 181, 0.35),
+                inset 0 0 80px rgba(106, 159, 181, 0.2),
+                inset 0 0 120px rgba(106, 159, 181, 0.1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Свечение для логлайна */
+.story-block.logline {
+    padding: 40px;
+    background: rgba(30, 35, 40, 0.5);
+    border: 1px solid rgba(106, 159, 181, 0.2);
+}
+
+.story-block.logline::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 40px rgba(106, 159, 181, 0.35),
+                inset 0 0 80px rgba(106, 159, 181, 0.2),
+                inset 0 0 120px rgba(106, 159, 181, 0.1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Свечение для блока "Ритм и эмоция" — как у Ремиксов */
+.rhythm-concept {
+    padding: 40px;
+    background: rgba(30, 35, 40, 0.5);
+    border: 1px solid rgba(106, 159, 181, 0.3);
+    box-shadow: inset 0 0 25px rgba(106, 159, 181, 0.2),
+                inset 0 0 50px rgba(106, 159, 181, 0.12),
+                inset 0 0 80px rgba(106, 159, 181, 0.06);
+    transition: all 0.3s;
+}
+
+.rhythm-concept:hover {
+    border-color: rgba(106, 159, 181, 0.5);
+    box-shadow: inset 0 0 35px rgba(106, 159, 181, 0.35),
+                inset 0 0 70px rgba(106, 159, 181, 0.2),
+                inset 0 0 100px rgba(106, 159, 181, 0.1);
+}
+
+/* Фон для манифеста режиссёра */
+.vision-manifest-bg {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/EPORXVAB.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: none;
+}
+
+.vision-manifest-bg:hover {
+    box-shadow: none;
+}
+
+/* Манифест режиссёра — многострочный */
+.vision-manifest {
+    max-width: 1000px;
+    text-align: left;
+}
+
+.vision-manifest p {
+    margin-bottom: 15px;
+}
+
+.vision-manifest p:last-child {
+    margin-bottom: 0;
+}
+
+/* Заголовки секций в блоках */
+.subsection-header {
+    margin-bottom: 40px;
+}
+
+.subsection-header h3 {
+    font-size: 28px;
+    color: var(--title-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.subsection-header p {
+    margin-top: 15px;
+}
+
+.section-header {
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 42px;
+    color: var(--title-color);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #e8f0f8 0%, #c8d8e8 50%, #e0ecf4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px rgba(160, 200, 220, 0.4));
+}
+
+/* ========================================
+   АНИМАЦИИ
+   ======================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   АДАПТИВНОСТЬ
+   ======================================== */
+
+/* Фикс для iOS - background-attachment: fixed не работает */
+@media (max-width: 1024px) {
+    .hero,
+    .story,
+    .visual,
+    .characters,
+    .rhythm,
+    .vision,
+    .production,
+    .contacts {
+        background-attachment: scroll !important;
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .hero {
+        background-image: url('images/M2UXJ50L-mobile.jpg') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(12, 15, 18, 0.98);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 30px 0;
+        gap: 20px;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-title {
+        font-size: 60px;
+        letter-spacing: 10px;
+    }
+
+    .hero-tagline {
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 36px;
+    }
+
+    .subsection-title {
+        font-size: 24px;
+    }
+
+    .characters-grid,
+    .locations-grid,
+    .production-grid,
+    .emotion-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dreamcast-row-2,
+    .dreamcast-row-1 {
+        grid-template-columns: 1fr;
+    }
+
+    .dreamcast-actors {
+        flex-wrap: wrap;
+    }
+
+    .posters-grid.posters-4,
+    .posters-grid.posters-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .screenplay-blocks {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-close,
+    .storyboard-close {
+        top: 20px;
+        right: 20px;
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+
+    .hero-tagline {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .vision-statement blockquote {
+        font-size: 18px;
+        padding: 25px;
+    }
+
+    .logline-text {
+        font-size: 18px;
+    }
+}
