@@ -929,6 +929,7 @@ body {
     padding: 25px;
     border-radius: 12px;
     border: 1px solid rgba(106, 159, 181, 0.3);
+    min-height: 350px;
 }
 
 .acting-method h4 {
@@ -947,21 +948,21 @@ body {
     background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
                 url('images/2b8da226a7ff16b925766865c33a942f.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center top;
 }
 
 .acting-improv {
     background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
                 url('images/e4fc707c2280c47b3d1407c499505324.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center top;
 }
 
 .acting-plastique {
     background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
                 url('images/49142beff342f56e09723801635308ea.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
 }
 
 .main-actor {
@@ -1062,6 +1063,95 @@ body {
 .camera-action-bg::before,
 .camera-system-bg::before,
 .camera-light-bg::before {
+    display: none;
+}
+
+/* Эпоха 2000-х — детали */
+.era-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.era-card {
+    background: var(--bg-light);
+    padding: 25px;
+    border: 1px solid rgba(106, 159, 181, 0.3);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.era-card h4 {
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.era-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Контражур для era-card */
+.era-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 30px rgba(106, 159, 181, 0.25),
+                inset 0 0 60px rgba(106, 159, 181, 0.15),
+                inset 0 0 100px rgba(106, 159, 181, 0.08);
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.era-card:hover {
+    border-color: rgba(106, 159, 181, 0.6);
+}
+
+.era-card:hover::before {
+    box-shadow: inset 0 0 40px rgba(106, 159, 181, 0.4),
+                inset 0 0 80px rgba(106, 159, 181, 0.25),
+                inset 0 0 120px rgba(106, 159, 181, 0.12);
+}
+
+/* Фоны для карточек эпохи */
+.era-tech {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/IBBTEQ8P.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.era-fashion {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/31LKSIGH.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.era-cars {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/57584d5bb8fd5a748dd3bb8d6507f242.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.era-interiors {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+                url('images/052735fc70c2bc535a844d9dd30233fb.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Убираем свечение для карточек эпохи с фоном */
+.era-tech::before,
+.era-fashion::before,
+.era-cars::before,
+.era-interiors::before {
     display: none;
 }
 
@@ -1895,7 +1985,9 @@ body {
     .characters-grid,
     .locations-grid,
     .production-grid,
-    .emotion-grid {
+    .emotion-grid,
+    .era-grid,
+    .acting-methods {
         grid-template-columns: 1fr;
     }
 
