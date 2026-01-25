@@ -172,6 +172,9 @@ if ('IntersectionObserver' in window) {
 // СЛАЙДЕР ЛОКАЦИЙ
 // ========================================
 
+// Определяем базовый путь (для китайской версии добавляем ../)
+const basePath = window.location.pathname.includes('/cn/') ? '../' : '';
+
 /*
  * НАСТРОЙКА СЛАЙДЕРОВ
  * Добавьте свои локации по примеру ниже:
@@ -180,74 +183,74 @@ const locationSliders = {
     gorbushka: {
         title: 'Горбушка',
         images: [
-            'images/Горбушка/1.png',
-            'images/Горбушка/2.png',
-            'images/Горбушка/3.png',
-            'images/Горбушка/4.png',
-            'images/Горбушка/5.png',
-            'images/Горбушка/7.png'
+            basePath + 'images/Горбушка/1.png',
+            basePath + 'images/Горбушка/2.png',
+            basePath + 'images/Горбушка/3.png',
+            basePath + 'images/Горбушка/4.png',
+            basePath + 'images/Горбушка/5.png',
+            basePath + 'images/Горбушка/7.png'
         ]
     },
     magazin: {
         title: 'Магазин «Царь-сеть»',
         images: [
-            'images/Магазин/Снимок экрана 2025-12-11 в 18.23.51.png',
-            'images/Магазин/Снимок экрана 2025-12-11 в 18.24.04.png',
-            'images/Магазин/Снимок экрана 2025-12-11 в 18.26.26.png'
+            basePath + 'images/Магазин/Снимок экрана 2025-12-11 в 18.23.51.png',
+            basePath + 'images/Магазин/Снимок экрана 2025-12-11 в 18.24.04.png',
+            basePath + 'images/Магазин/Снимок экрана 2025-12-11 в 18.26.26.png'
         ]
     },
     kvartira: {
         title: 'Квартира Макса',
         images: [
-            'images/Квартира/0ee2262d0b0c35a1fad7073883edbc0b.jpg',
-            'images/Квартира/44f64b67cf8859de4bea633d847bcaf9.jpg',
-            'images/Квартира/92c8e5891cd9d11b42c849a05263d576.jpg',
-            'images/Квартира/c99c38a85b2a5159e155920344929d79.jpg'
+            basePath + 'images/Квартира/0ee2262d0b0c35a1fad7073883edbc0b.jpg',
+            basePath + 'images/Квартира/44f64b67cf8859de4bea633d847bcaf9.jpg',
+            basePath + 'images/Квартира/92c8e5891cd9d11b42c849a05263d576.jpg',
+            basePath + 'images/Квартира/c99c38a85b2a5159e155920344929d79.jpg'
         ]
     },
     kabinet: {
         title: 'Кабинет Олега Михайловича',
         images: [
-            'images/Кабинет/449f80ad4b001b30c76fd27d57d6f5c4.jpg',
-            'images/Кабинет/592f2536f21718324d8c8ce2221e21f4.jpg',
-            'images/Кабинет/ace9738741fcb191eabcddb5926e0afa.jpg'
+            basePath + 'images/Кабинет/449f80ad4b001b30c76fd27d57d6f5c4.jpg',
+            basePath + 'images/Кабинет/592f2536f21718324d8c8ce2221e21f4.jpg',
+            basePath + 'images/Кабинет/ace9738741fcb191eabcddb5926e0afa.jpg'
         ]
     },
     moskva: {
         title: 'Москва',
         images: [
-            'images/Москва/1.png',
-            'images/Москва/2.png',
-            'images/Москва/3.png',
-            'images/Москва/4.png',
-            'images/Москва/5.png'
+            basePath + 'images/Москва/1.png',
+            basePath + 'images/Москва/2.png',
+            basePath + 'images/Москва/3.png',
+            basePath + 'images/Москва/4.png',
+            basePath + 'images/Москва/5.png'
         ]
     },
     kostyumy: {
         title: 'Костюмы',
         images: [
-            'images/Костюмы/10e57f41f533ca9d00a93d016403f301.jpg',
-            'images/Костюмы/2738fc0f11af0b66338d04b44137de5f.jpg',
-            'images/Костюмы/32175a75971fbe7005d0a3157136ac45.jpg',
-            'images/Костюмы/35cecd193b8cd9e9f09fd37d91ade2ea.jpg',
-            'images/Костюмы/3fc4c446caa5d986e4abdef2d77c6643.jpg',
-            'images/Костюмы/4e865aec512cab325e731c0a2d73c431.jpg',
-            'images/Костюмы/5cd4950a74214a715c709f732c312f98.jpg',
-            'images/Костюмы/76a836cb1aae598ee5f55ae32c80f357.jpg',
-            'images/Костюмы/79644c84b54fbe03685837869f5f64b5.jpg',
-            'images/Костюмы/7da745c02bb58e3c5fc77f57ecab0628.jpg',
-            'images/Костюмы/91896abee4b6773b73b9ccbfbe8fab82.jpg',
-            'images/Костюмы/933fa8cdc8f62c327f5c1128588623e0.jpg',
-            'images/Костюмы/9bb6d570eb25e2075ee9513e8c8bdf30.jpg',
-            'images/Костюмы/9c12aa5425d49767d0de7f1ded7e9c19.jpg',
-            'images/Костюмы/a5d8490b6bfca94fd6d66c811cba0fce.jpg',
-            'images/Костюмы/b13e66f98776e096ed0f997f528ac649.jpg',
-            'images/Костюмы/b246b0c9dfebf1a485c171feb9f01d8f.jpg',
-            'images/Костюмы/c21899cf7098d77503adf461fafaad0a.jpg',
-            'images/Костюмы/c43c324afd78d465af78f7ab0c9eaaec.jpg',
-            'images/Костюмы/ce712ae0a89cd94a802d6fe876848be6.jpg',
-            'images/Костюмы/f761ca98593ecc46d7e5a0515ca78e38.jpg',
-            'images/Костюмы/загружено.png'
+            basePath + 'images/Костюмы/10e57f41f533ca9d00a93d016403f301.jpg',
+            basePath + 'images/Костюмы/2738fc0f11af0b66338d04b44137de5f.jpg',
+            basePath + 'images/Костюмы/32175a75971fbe7005d0a3157136ac45.jpg',
+            basePath + 'images/Костюмы/35cecd193b8cd9e9f09fd37d91ade2ea.jpg',
+            basePath + 'images/Костюмы/3fc4c446caa5d986e4abdef2d77c6643.jpg',
+            basePath + 'images/Костюмы/4e865aec512cab325e731c0a2d73c431.jpg',
+            basePath + 'images/Костюмы/5cd4950a74214a715c709f732c312f98.jpg',
+            basePath + 'images/Костюмы/76a836cb1aae598ee5f55ae32c80f357.jpg',
+            basePath + 'images/Костюмы/79644c84b54fbe03685837869f5f64b5.jpg',
+            basePath + 'images/Костюмы/7da745c02bb58e3c5fc77f57ecab0628.jpg',
+            basePath + 'images/Костюмы/91896abee4b6773b73b9ccbfbe8fab82.jpg',
+            basePath + 'images/Костюмы/933fa8cdc8f62c327f5c1128588623e0.jpg',
+            basePath + 'images/Костюмы/9bb6d570eb25e2075ee9513e8c8bdf30.jpg',
+            basePath + 'images/Костюмы/9c12aa5425d49767d0de7f1ded7e9c19.jpg',
+            basePath + 'images/Костюмы/a5d8490b6bfca94fd6d66c811cba0fce.jpg',
+            basePath + 'images/Костюмы/b13e66f98776e096ed0f997f528ac649.jpg',
+            basePath + 'images/Костюмы/b246b0c9dfebf1a485c171feb9f01d8f.jpg',
+            basePath + 'images/Костюмы/c21899cf7098d77503adf461fafaad0a.jpg',
+            basePath + 'images/Костюмы/c43c324afd78d465af78f7ab0c9eaaec.jpg',
+            basePath + 'images/Костюмы/ce712ae0a89cd94a802d6fe876848be6.jpg',
+            basePath + 'images/Костюмы/f761ca98593ecc46d7e5a0515ca78e38.jpg',
+            basePath + 'images/Костюмы/загружено.png'
         ]
     }
 };
@@ -386,7 +389,7 @@ document.addEventListener('keydown', (e) => {
 // ЗВУК NOKIA ПРИ НАВЕДЕНИИ НА ЗАГОЛОВОК
 // ========================================
 const heroTitle = document.querySelector('.hero-title');
-const nokiaSound = new Audio('sounds/nokia.mp3');
+const nokiaSound = new Audio(basePath + 'sounds/nokia.mp3');
 nokiaSound.volume = 0.3;
 
 if (heroTitle) {
